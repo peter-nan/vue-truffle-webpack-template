@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import * as types from '../store/mutation-types'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import { mapGetters } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import * as types from '../store/mutation-types'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   name: 'meta-coin',
@@ -36,7 +36,7 @@ export default {
       address: 'address',
       amount: 'amount',
       balance: 'balance',
-      status: 'status'
+      status: 'status'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
   methods: {
