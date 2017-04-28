@@ -1,8 +1,8 @@
 {
-  "name": "vue-cli-template-webpack",
-  "version": "2.0.0",
+  "name": "vue-cli-template-truffle-webpack",
+  "version": "0.0.1",
   "license": "MIT",
-  "description": "A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.",
+  "description": "A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction as well as Truffle integration for the creation of distributed apps.",
   "scripts": {
     "docs": "cd docs && gitbook serve",
     "docs:deploy": "bash ./deploy-docs.sh"
