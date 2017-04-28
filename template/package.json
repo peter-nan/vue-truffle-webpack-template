@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "truffle-contract": "^2.0.0",
-    "vue": "^2.2.6"{{#router}},
+    "vue": "^2.2.6",{{#router}}
     "vue-router": "^2.3.1",{{/router}}
     "vuex": "^2.3.1",
     "web3": "^0.18.4"
