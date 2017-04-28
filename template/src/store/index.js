@@ -40,7 +40,7 @@ const actions = {
   sendMeta{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, dispatch, state }) {
     commit(types.UPDATE_STATUS, 'Initiating transaction... (please wait)'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     MetaCoin.deployed().then((instance) => (
-      instance.sendCoin(state.address, parseInt(state.amount, 10), { from: state.account }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      instance.sendCoin(state.address, parseInt(state.amount, 10), { from: state.account })
     )).then(() => {
       dispatch('getBalance'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       commit(types.UPDATE_STATUS, 'Transaction complete!'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -51,7 +51,7 @@ const actions = {
   },
   getBalance{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, state }) {
     MetaCoin.deployed().then((instance) => (
-      return instance.getBalance.call(state.account, { from: state.account }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      instance.getBalance.call(state.account, { from: state.account })
     )).then((balance) => {
       commit(types.UPDATE_BALANCE, balance.toString()){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }).catch((err) => {
