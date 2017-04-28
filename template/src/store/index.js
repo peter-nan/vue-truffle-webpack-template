@@ -1,7 +1,7 @@
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Vuex from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import createLogger from 'vuex/dist/logger'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import * as types from './mutation-types.js'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import * as types from './mutation-types'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import { MetaCoin } from '../contracts'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -27,17 +27,17 @@ const getters = {
 const actions = {
   // action is dispatched when account is first set
   // this is where you can put your initialization calls
-  setAccount ({ commit, dispatch, state }, account) {
+  setAccount{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, dispatch, state }, account) {
     commit(types.UPDATE_ACCOUNT, account){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     dispatch('getBalance'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
   // action is dispatched when/if the account is updated
   // use this action to refresh the app with the new account's data
-  updateAccount ({ commit, dispatch, state }, account) {
+  updateAccount{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, dispatch, state }, account) {
     commit(types.UPDATE_ACCOUNT, account){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     dispatch('getBalance'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  sendMeta ({ commit, dispatch, state }) {
+  sendMeta{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, dispatch, state }) {
     commit(types.UPDATE_STATUS, 'Initiating transaction... (please wait)'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     MetaCoin.deployed().then((instance) => {
       return instance.sendCoin(state.address, parseInt(state.amount), { from: state.account }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -49,7 +49,7 @@ const actions = {
       commit(types.UPDATE_STATUS, 'Error sending coin; see log.'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  getBalance ({ commit, state }) {
+  getBalance{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, state }) {
     MetaCoin.deployed().then((instance) => {
       return instance.getBalance.call(state.account, { from: state.account }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }).then((balance) => {
