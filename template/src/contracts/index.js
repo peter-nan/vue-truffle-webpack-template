@@ -9,6 +9,6 @@ import metacoinArtifacts from '../../../build/contracts/MetaCoin.json'{{#if_eq l
 const MetaCoin = contract(metacoinArtifacts){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 MetaCoin.setProvider(web3.currentProvider){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
-export default {
+export {
   MetaCoin{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
