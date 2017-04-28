@@ -4,7 +4,7 @@
       <img width="100" src="../assets/logo.png">
       <h1>MetaCoin</h1>
       <h2>Example Vue + Truffle Dapp</h2>
-      <h3>You have <span class="black"><span id="balance" :class="{green: balance !== '0', red: balance === '0'}">{{!-- balance --}}</span> META</span></h3>
+      <h3>You have <span class="black"><span id="balance" :class="{green: balance !== '0', red: balance === '0'}">{{!-- {{ balance }} --}}</span> META</span></h3>
     </header>
 
     <section>
@@ -16,7 +16,7 @@
         <input type="text" id="receiver" placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae" :value="address" @input="updateAddress"></input>
         <button id="send" type="submit">Send MetaCoin</button>
       </form>
-      <p id="status">{{!-- status --}}</p>
+      <p id="status">{{!-- {{ status }} --}}</p>
     </section>
 
     <footer>
