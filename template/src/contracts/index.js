@@ -1,6 +1,6 @@
 /* global web3:true */
 
-import { default as contract } from 'truffle-contract'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import contract from 'truffle-contract'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 // import artifacts
 import metacoinArtifacts from '../../../build/contracts/MetaCoin.json'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}

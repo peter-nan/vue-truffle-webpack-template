@@ -11,11 +11,11 @@
 <script>
 /* global web3:true */
 
+import Web3 from 'web3'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { mapGetters } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#unless router}}
 import MetaCoin from './components/MetaCoin'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{/unless}}
-import { default as Web3 } from 'web3'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-import { mapGetters } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   name: 'app',{{#unless router}}
