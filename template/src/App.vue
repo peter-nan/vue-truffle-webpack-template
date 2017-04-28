@@ -18,10 +18,10 @@ import { default as Web3 } from 'web3'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import { mapGetters } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
-  name: 'app',{{#router}}
+  name: 'app',{{#unless router}}
   components: {
     MetaCoin{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-  },{{/router}}
+  },{{/unless}}
   data () {
     return {
       accountInterval: null{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
