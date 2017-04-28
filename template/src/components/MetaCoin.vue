@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import * as types from '../store/mutation-types'
-import { mapGetters } from 'vuex'
+import * as types from '../store/mutation-types'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import { mapGetters } from 'vuex'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default {
   name: 'meta-coin',
@@ -37,30 +37,30 @@ export default {
       amount: 'amount',
       balance: 'balance',
       status: 'status'
-    })
+    }){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
   methods: {
-    sendHandler () {
+    sendHandler{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}() {
       if (isNaN(this.amount) || this.amount === '0' || this.amount === '') {
-        alert('inavlid amount:', this.amount)
-        return
+        alert('inavlid amount:', this.amount){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        return{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }
 
       if (this.address === '') {
-        alert('invalid address:', this.address)
-        return
+        alert('invalid address:', this.address){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        return{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }
 
-      this.$store.dispatch('sendMeta')
+      this.$store.dispatch('sendMeta'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     },
-    updateAddress (e) {
-      this.$store.commit(types.UPDATE_ADDRESS, e.target.value)
+    updateAddress{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(e) {
+      this.$store.commit(types.UPDATE_ADDRESS, e.target.value){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     },
-    updateAmount (e) {
-      this.$store.commit(types.UPDATE_AMOUNT, e.target.value)
-    }
-  }
-}
+    updateAmount{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(e) {
+      this.$store.commit(types.UPDATE_AMOUNT, e.target.value){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+}{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

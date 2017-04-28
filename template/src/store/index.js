@@ -39,9 +39,9 @@ const actions = {
   },
   sendMeta{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, dispatch, state }) {
     commit(types.UPDATE_STATUS, 'Initiating transaction... (please wait)'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    MetaCoin.deployed().then((instance) => {
-      return instance.sendCoin(state.address, parseInt(state.amount), { from: state.account }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    }).then(() => {
+    MetaCoin.deployed().then((instance) => (
+      instance.sendCoin(state.address, parseInt(state.amount, 10), { from: state.account }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    )).then(() => {
       dispatch('getBalance'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       commit(types.UPDATE_STATUS, 'Transaction complete!'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }).catch((err) => {
@@ -50,9 +50,9 @@ const actions = {
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
   getBalance{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}({ commit, state }) {
-    MetaCoin.deployed().then((instance) => {
+    MetaCoin.deployed().then((instance) => (
       return instance.getBalance.call(state.account, { from: state.account }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    }).then((balance) => {
+    )).then((balance) => {
       commit(types.UPDATE_BALANCE, balance.toString()){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }).catch((err) => {
       console.error(err){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -62,28 +62,28 @@ const actions = {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const mutations = {
-  [types.UPDATE_ACCOUNT] (state, account) {
+  [types.UPDATE_ACCOUNT]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, account) {
     state.account = account{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  [types.UPDATE_ADDRESS] (state, address) {
+  [types.UPDATE_ADDRESS]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, address) {
     state.address = address{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  [types.UPDATE_AMOUNT] (state, amount) {
+  [types.UPDATE_AMOUNT]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, amount) {
     state.amount = amount{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  [types.UPDATE_BALANCE] (state, balance) {
+  [types.UPDATE_BALANCE]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, balance) {
     state.balance = balance{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  [types.UPDATE_STATUS] (state, status) {
+  [types.UPDATE_STATUS]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, status) {
     state.status = status{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 export default new Vuex.Store({
   state: rootState,
-  getters: getters,
-  actions: actions,
-  mutations: mutations,
+  getters,
+  actions,
+  mutations,
   strict: debug,
   plugins: debug ? [createLogger()] : []{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}

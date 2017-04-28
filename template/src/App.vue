@@ -22,7 +22,7 @@ export default {
   components: {
     MetaCoin{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },{{/unless}}
-  data () {
+  data{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}() {
     return {
       accountInterval: null{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -32,10 +32,10 @@ export default {
       account: 'account'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   },
-  mounted () {
+  mounted{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}() {
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 === 'undefined') {
-      console.error(`No web3 detected. Please use MetaMask for development. https://metamask.io/`){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+      console.error('No web3 detected. Please use MetaMask for development. https://metamask.io/'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       return{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }
 
@@ -51,7 +51,7 @@ export default {
       }
     }, 100){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
-  beforeDestroy () {
+  beforeDestroy{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}() {
     clearInterval(this.accountInterval){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
