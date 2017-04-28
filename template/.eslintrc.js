@@ -50,7 +50,7 @@ module.exports = {
     }],
     'no-param-reassign': 0,
     'radix': 0,
-    'prefer-default-export': 0,
+    'import/prefer-default-export': 0,
     {{/if_eq}}
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
