@@ -1,3 +1,9 @@
+# vue-truffle-webpack-template
+
+This is a custom Vue template built upon the official [webpack template](https://github.com/vuejs-templates/webpack). It is important to note that this template will not work by itself and requires [truffle](https://github.com/trufflesuite/truffle). This template provides the `app` folder in the truffle project structure. It was created as a component of another project [vue-truffle-webpack](https://github.com/wilfreddenton/vue-truffle-webpack) [vtw]. If you and interested in utilizing this template please check out vtw.
+
+Below is the README for the official webpack template. This info still applies as this template is only a modified version of that.
+
 # vue-webpack-boilerplate
 
 > A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
