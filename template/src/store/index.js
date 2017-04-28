@@ -10,7 +10,7 @@ const debug = process.env.NODE_ENV !== 'production'{{#if_eq lintConfig "airbnb"}
 
 const rootState = {
   account: '',
-  balance: 0,
+  balance: '0',
   amount: '',
   address: '',
   status: ''{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
