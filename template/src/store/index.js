@@ -44,7 +44,7 @@ const actions = {
     )).then(() => {
       dispatch('getBalance'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       commit(types.UPDATE_STATUS, 'Transaction complete!'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    }).catch(err => {
+    }).catch((err) => {
       console.error(err){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       commit(types.UPDATE_STATUS, 'Error sending coin; see log.'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
@@ -54,7 +54,7 @@ const actions = {
       instance.getBalance.call(state.account, { from: state.account })
     )).then((balance) => {
       commit(types.UPDATE_BALANCE, balance.toString()){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    }).catch(err => {
+    }).catch((err) => {
       console.error(err){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       commit(types.UPDATE_STATUS, 'Error getting balance; see log.'){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
     }){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
