@@ -62,9 +62,11 @@ const actions = {
 }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 
 const mutations = {
+  {{#router}}
   // this mutatation is called when the route changes
   [types.ROUTE_CHANGED]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, { to, from }) {
   },
+  {{/router}}
   [types.UPDATE_ACCOUNT]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, account) {
     state.account = account{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
