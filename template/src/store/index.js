@@ -65,6 +65,7 @@ const mutations = {
   {{#router}}
   // this mutatation is called when the route changes
   [types.ROUTE_CHANGED]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, { to, from }) {
+    console.log("route changed from", from.name, "to", to.name){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
   },
   {{/router}}
   [types.UPDATE_ACCOUNT]{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}(state, account) {
