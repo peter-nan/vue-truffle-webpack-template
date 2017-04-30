@@ -42,12 +42,12 @@ export default {
   methods: {
     sendHandler{{#if_not_eq lintConfig "airbnb"}} {{/if_not_eq}}() {
       if (isNaN(this.amount) || this.amount === '0' || this.amount === '') {
-        alert('inavlid amount:', this.amount){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        alert('inavlid amount: ' + this.amount){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
         return{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }
 
       if (this.address === '') {
-        alert('invalid address:', this.address){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+        alert('invalid address: ' + this.address){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
         return{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
       }
 
